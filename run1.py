@@ -8,10 +8,10 @@ from robot_config import DRIVE_BASE, HUB, KD, KI, KP, LEFT_ATTACHMENT, RIGHT_ATT
 # Set up all devices.
 watch = StopWatch()
 
-async def  Raise_Elevator():
+async def  Raise_Elevator(degrees):
     # previously 1100
     # 352
-    await RIGHT_ATTACHMENT.run_angle(1000, 230)
+    await RIGHT_ATTACHMENT.run_angle(1000, degrees)
     # 352
 
 async def subtask2():
@@ -63,11 +63,24 @@ async def turn_by_turn_1():
     DRIVE_BASE.use_gyro(True)
     await DRIVE_BASE.straight(-10, then=Stop.BRAKE)
     await multitask(
-       Raise_Elevator(),
-        DRIVE_BASE.straight(320,en=Stop.BRAKE),
+       Raise_Elevator(320),
+        DRIVE_BASE.straight(320, then=Stop.BRAKE),
     )
     await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
-    await DRIVE_BASE.turn(90,Stop.BRAKE,wait=True)
+    await DRIVE_BASE.turn(47,Stop.BRAKE,wait=True)
+    await heading_pid(DRIVE_BASE, KP, KI, KD)
+    await multitask(
+        DRIVE_BASE.straight(565, then=Stop.BRAKE),
+        Raise_Elevator(600)
+    )
+    await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
+    await DRIVE_BASE.turn(47,Stop.BRAKE,wait=True)
+
+    await multitask(
+        LEFT_ATTACHMENT.run_angle(1000, -170),
+        Raise_Elevator(-820)
+    )
+    #left before down 
     '''
 
     watch.reset()
@@ -75,7 +88,7 @@ async def turn_by_turn_1():
     DRIVE_BASE.use_gyro(True)
     await DRIVE_BASE.straight(-10, then=Stop.BRAKE)
     await multitask(
-        subtask(),
+       Raise_Elevator(320),
         DRIVE_BASE.straight(640, then=Stop.BRAKE),
     )
     await wait(50)
