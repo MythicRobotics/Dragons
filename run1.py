@@ -77,8 +77,8 @@ async def turn_by_turn_1():
     await DRIVE_BASE.turn(47,Stop.BRAKE,wait=True)
 
     await multitask(
-        LEFT_ATTACHMENT.run_angle(1000, -170),
-        Raise_Elevator(-820)
+        LEFT_ATTACHMENT.run_angle(1100, 400),
+        RIGHT_ATTACHMENT.run_angle(780, -390)
     )
     #left before down 
     '''
