@@ -31,17 +31,19 @@ async def turn_by_turn_1():
     await multitask(
         elevator_left(400, 1100),
         elevator_down(390, 780),
-        elevator_left(350, 1000),
+     )
+    await multitask(
+        elevator_left(350),
         elevator_down(390, 780),
     )
     # left before down
-    await elevator_up(460, 1000)
+    await elevator_up(460)
     await elevator_right(470, 780)
 
     await drive_straight_backward(40)
-    await elevator_down(470, 1000)
+    await elevator_down(470)
     await elevator_left(300, 780)
-    await elevator_down(470, 1000)
+    await elevator_down(470)
     #this is where the robot does tangled
     '''
 
