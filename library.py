@@ -1,6 +1,7 @@
-# pybricks blocks file:{"blocks":{"languageVersion":0,"blocks":[{"type":"blockGlobalSetup","id":"bjK,wS1MYO7aiYkFSwd{","x":0,"y":0,"deletable":false,"next":{"block":{"type":"variables_setup_imported_function","id":";qeDD9EKS5j%MY=?)@Lq","fields":{"FROM_MODULE":{"id":"M;*Gron;|1#*qe_4N3cl"},"VAR":{"id":"l$J}SU@aXoM]CO_I$Y5M"}},"next":{"block":{"type":"variables_setup_imported_function","id":"H`~,jvrkCPR{2Af(OIH-","fields":{"FROM_MODULE":{"id":"M;*Gron;|1#*qe_4N3cl"},"VAR":{"id":"%Xp:h.O6FD(d%?w_Z)/,"}},"next":{"block":{"type":"variables_setup_imported_function","id":"#P=~Y^$BP.~nSmMJw~i_","fields":{"FROM_MODULE":{"id":"M;*Gron;|1#*qe_4N3cl"},"VAR":{"id":"5kB}fi^%y,v)yM(4qeuF"}},"next":{"block":{"type":"variables_setup_imported_function","id":"VKYEF*Cp0_7e_yGf9b[F","fields":{"FROM_MODULE":{"id":"M;*Gron;|1#*qe_4N3cl"},"VAR":{"id":"DxP+[JBI|cFoisLs3~J3"}},"next":{"block":{"type":"variables_setup_imported_function","id":"$5B1/@uX0H6g_#M;lo)f","fields":{"FROM_MODULE":{"id":"M;*Gron;|1#*qe_4N3cl"},"VAR":{"id":"?F#t50Mu*8fVzo;Xi;^h"}},"next":{"block":{"type":"variables_setup_imported_function","id":"0(9ObHsjet+py}led7/p","fields":{"FROM_MODULE":{"id":"M;*Gron;|1#*qe_4N3cl"},"VAR":{"id":"f^e27OP+OAEi8yCi}Rw`"}}}}}}}}}}}}}}},{"type":"blockGlobalStart","id":"3tJe|AWl0baN(wH9a$@.","x":0,"y":363,"deletable":false,"next":{"block":{"type":"blockMultiTask","id":"!6nT^FfOh1pQQ%fp2h95","extraState":{"optionLevel":0},"fields":{"METHOD":"MULTITASK_ALL"},"inputs":{"TASK0":{"block":{"type":"blockComment","id":"v=]fRelaVW,0EIjX-Zo:","fields":{"FIELDNAME":"Blank,  done to make code multitask\nNeeded due to how the blocks work"}}}}}}},{"type":"variables_setup_function","id":"3ok6v{?MkWPuN.XdNNV9","x":0,"y":678,"extraState":{"optionLevel":0},"fields":{"ICON":"COG","VAR":{"id":"Y|/42qpjg6IQDqud?p41"}},"inputs":{"STACK":{"block":{"type":"blockDriveBaseConfigure","id":"4|f8O[ykL5DZK}4LbYE{","extraState":{"optionLevel":1},"fields":{"METHOD":"DRIVEBASE_STRAIGHT_SPEED"},"inputs":{"VAR":{"shadow":{"type":"variables_get_drive_base_device","id":"jiaLZ{IRR*_}`B`n_,?A","fields":{"VAR":{"id":"URj4a/c2PQrqp8](ywET","name":"i","type":"DriveBase"}}},"block":{"type":"blockreadOnlyGetter","id":"I%mIXvXMVh7ra]?X{Tax","fields":{"VAR":{"id":"l$J}SU@aXoM]CO_I$Y5M"}}}},"ARG0":{"shadow":{"type":"unit_speed","id":"T,uH:#X]xgh6x:Op9GYT","fields":{"VALUE0":200}},"block":{"type":"blockreadOnlyGetter","id":"s(HM9o2+01unPmR=pw/1","fields":{"VAR":{"id":"%Xp:h.O6FD(d%?w_Z)/,"}}}}},"next":{"block":{"type":"blockDriveBaseConfigure","id":"P~.k!YBC5K:nF5b!DV5a","extraState":{"optionLevel":2},"fields":{"METHOD":"DRIVEBASE_STRAIGHT_ACCELERATION"},"inputs":{"VAR":{"shadow":{"type":"variables_get_drive_base_device","id":"jiaLZ{IRR*_}`B`n_,?A","fields":{"VAR":{"id":"URj4a/c2PQrqp8](ywET","name":"i","type":"DriveBase"}}},"block":{"type":"blockreadOnlyGetter","id":"EFhhH|!!0]X38Nb/@WVj","fields":{"VAR":{"id":"l$J}SU@aXoM]CO_I$Y5M"}}}},"ARG0":{"shadow":{"type":"unit_acceleration","id":"#4SQwTLTx9#vgd0`q/ZC","fields":{"VALUE0":750}},"block":{"type":"blockreadOnlyGetter","id":"*[]^L|Sb;#Bh^m2`pZSG","fields":{"VAR":{"id":"DxP+[JBI|cFoisLs3~J3"}}}}},"next":{"block":{"type":"blockDriveBaseConfigure","id":"0/cUg]CK1HH^pZPI|wCC","extraState":{"optionLevel":3},"fields":{"METHOD":"DRIVEBASE_TURN_RATE"},"inputs":{"VAR":{"shadow":{"type":"variables_get_drive_base_device","id":"jiaLZ{IRR*_}`B`n_,?A","fields":{"VAR":{"id":"AU++|H,P*G4Bc}h%R!)X","name":"j","type":"DriveBase"}}},"block":{"type":"blockreadOnlyGetter","id":"n]$fn?owx2BZV-0;!UYm","fields":{"VAR":{"id":"l$J}SU@aXoM]CO_I$Y5M"}}}},"ARG0":{"shadow":{"type":"unit_angularVelocity","id":"GLBb:hK~T[QaO$5g(9X*","fields":{"VALUE0":150}},"block":{"type":"blockreadOnlyGetter","id":"tMlkEu%~.K]g8bQK^T,R","fields":{"VAR":{"id":"5kB}fi^%y,v)yM(4qeuF"}}}}},"next":{"block":{"type":"blockDriveBaseConfigure","id":"1zdqiH3=(|O(Rg6+5ygV","extraState":{"optionLevel":4},"fields":{"METHOD":"DRIVEBASE_TURN_ACCELERATION"},"inputs":{"VAR":{"shadow":{"type":"variables_get_drive_base_device","id":"jiaLZ{IRR*_}`B`n_,?A","fields":{"VAR":{"id":"AU++|H,P*G4Bc}h%R!)X","name":"j","type":"DriveBase"}}},"block":{"type":"blockreadOnlyGetter","id":"*G`41(%4+^affF_zE^hq","fields":{"VAR":{"id":"l$J}SU@aXoM]CO_I$Y5M"}}}},"ARG0":{"shadow":{"type":"unit_angularAcceleration","id":"`w_JNR1j/O?l4D~6A|Rb","fields":{"VALUE0":750}},"block":{"type":"blockreadOnlyGetter","id":"-rTC0X/zyBxEydad34[j","fields":{"VAR":{"id":"?F#t50Mu*8fVzo;Xi;^h"}}}}}}}}}}}}}}}]},"variables":[{"name":"red","id":"j+hBZmgOJ4nA7f/q9NkB","type":"ColorDef"},{"name":"orange","id":"SI,phSC,wmCxcX4)D1OB","type":"ColorDef"},{"name":"yellow","id":"f3BT1WUiJ0`p%SdA(+:C","type":"ColorDef"},{"name":"green","id":"a6Bm,T0,e=P_?1Hspgw=","type":"ColorDef"},{"name":"cyan","id":"~5AtFoAH%FQU{}~A3?Rp","type":"ColorDef"},{"name":"blue","id":"X#|59@1hjUx$6:#JB=d(","type":"ColorDef"},{"name":"violet","id":"=vn*c^Tp[)5{a)Y=r;0R","type":"ColorDef"},{"name":"magenta","id":"GNoWs4WH^}tEmUJ7Cl(+","type":"ColorDef"},{"name":"white","id":"EdH`-Ht5:I@gi@k/hvap","type":"ColorDef"},{"name":"none","id":"wyYLwrmp43zt2^*~BS2j","type":"ColorDef"},{"name":"set_drivebase","id":"Y|/42qpjg6IQDqud?p41","type":"Function"},{"name":"SPEED","id":"%Xp:h.O6FD(d%?w_Z)/,","type":"FunctionImported"},{"name":"TURN_SPEED","id":"5kB}fi^%y,v)yM(4qeuF","type":"FunctionImported"},{"name":"ACCELERATION","id":"DxP+[JBI|cFoisLs3~J3","type":"FunctionImported"},{"name":"TURN_ACCELERATION","id":"?F#t50Mu*8fVzo;Xi;^h","type":"FunctionImported"},{"name":"DRIVE_BASE","id":"l$J}SU@aXoM]CO_I$Y5M","type":"FunctionImported"},{"name":"HUB","id":"f^e27OP+OAEi8yCi}Rw`","type":"FunctionImported"},{"name":"robot_config","id":"M;*Gron;|1#*qe_4N3cl","type":"ModuleImported"}],"info":{"type":"pybricks","version":"1.3.2"}}
+from pybricks.parameters import Button, Stop
 from pybricks.tools import multitask, run_task, wait
-
+from robot_config import DRIVE_BASE, HUB, KD, KI, KP, LEFT_ATTACHMENT, RIGHT_ATTACHMENT, TURN_KD, TURN_KI, TURN_KP
+from pid_python import heading_pid
 from robot_config import ACCELERATION, DRIVE_BASE, HUB, SPEED, TURN_ACCELERATION, TURN_SPEED
 
 async def set_drivebase():
@@ -10,8 +11,55 @@ async def set_drivebase():
     DRIVE_BASE.settings(turn_rate=TURN_SPEED)
     DRIVE_BASE.settings(turn_acceleration=TURN_ACCELERATION)
 
-
 async def print_drivebase_settings():
     print('Default drivebase settings that are overridden in the config file')
     print('Speed, Acceleration, Turn, Turn Accel')
     print(DRIVE_BASE.settings())
+
+async def  elevator_up(degrees: int, speed: int = 1000):
+    await RIGHT_ATTACHMENT.run_angle(speed, degrees)
+
+async def  elevator_down(degrees: int, speed: int = 1000):
+    await RIGHT_ATTACHMENT.run_angle(speed, -degrees)
+
+async def  elevator_left(degrees: int, speed: int = 1000):
+    await LEFT_ATTACHMENT.run_angle(speed, degrees)
+
+async def  elevator_right(degrees: int, speed: int = 1000):
+    await LEFT_ATTACHMENT.run_angle(speed, -degrees)
+
+async def drive_turn_right(degrees: int):
+    await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
+    await DRIVE_BASE.turn(degrees, Stop.BRAKE, wait=True)
+
+async def drive_turn_left(degrees: int):
+    await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
+    await DRIVE_BASE.turn(-degrees, Stop.BRAKE, wait=True)
+
+
+async def drive_straight_forward(distance: int):
+    await wait(50)
+    DRIVE_BASE.stop()
+    await heading_pid(DRIVE_BASE, KP, KI, KD)
+    await DRIVE_BASE.straight(distance, then=Stop.BRAKE)    
+
+
+async def drive_straight_backward(distance: int):
+    await wait(50)
+    DRIVE_BASE.stop()
+    await heading_pid(DRIVE_BASE, KP, KI, KD)
+    await DRIVE_BASE.straight(-distance, then=Stop.BRAKE)    
+
+
+async def telemetry():
+    while True:
+        await wait(0)
+        await wait(100)
+        print(DRIVE_BASE.angle())
+
+async def E_stop():
+    await wait(1000)
+    while True:
+        await wait(0)
+        if Button.CENTER in HUB.buttons.pressed():
+            raise SystemExit
