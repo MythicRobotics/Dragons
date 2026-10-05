@@ -70,17 +70,28 @@ async def turn_by_turn_1():
     await DRIVE_BASE.turn(47,Stop.BRAKE,wait=True)
     await heading_pid(DRIVE_BASE, KP, KI, KD)
     await multitask(
-        DRIVE_BASE.straight(565, then=Stop.BRAKE),
+        DRIVE_BASE.straight(555, then=Stop.BRAKE),
         Raise_Elevator(600)
     )
     await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
     await DRIVE_BASE.turn(47,Stop.BRAKE,wait=True)
 
+   
+    await LEFT_ATTACHMENT.run_angle(1100, 400),
+    await RIGHT_ATTACHMENT.run_angle(500, -390)
+    
     await multitask(
-        LEFT_ATTACHMENT.run_angle(1100, 400),
-        RIGHT_ATTACHMENT.run_angle(780, -390)
+            LEFT_ATTACHMENT.run_angle(1000, 350),
+            RIGHT_ATTACHMENT.run_angle(780, -390)
     )
-    #left before down 
+    await RIGHT_ATTACHMENT.run_angle(1000, 460)
+    await LEFT_ATTACHMENT.run_angle(780, -470)
+
+    await DRIVE_BASE.straight(-40, then=Stop.BRAKE),
+    await RIGHT_ATTACHMENT.run_angle(1000, -470)
+    await LEFT_ATTACHMENT.run_angle(780, 300)
+    await RIGHT_ATTACHMENT.run_angle(1000, -470)
+    #this is where the robot does tangled
     '''
 
     watch.reset()
