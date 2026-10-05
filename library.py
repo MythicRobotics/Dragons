@@ -10,12 +10,8 @@ async def set_drivebase():
     DRIVE_BASE.settings(turn_rate=TURN_SPEED)
     DRIVE_BASE.settings(turn_acceleration=TURN_ACCELERATION)
 
-async def main():
-    # Blank,  done to make code multitask
-    # Needed due to how the blocks work
-    await multitask(
-        wait(0),
-    )
 
-
-run_task(main())
+async def print_drivebase_settings():
+    print('Default drivebase settings that are overridden in the config file')
+    print('Speed, Acceleration, Turn, Turn Accel')
+    print(DRIVE_BASE.settings())

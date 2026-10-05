@@ -7,7 +7,7 @@ from run1 import launch_1
 from run2 import test2
 from run3 import test3
 from run4 import test4
-from text_library import print_drivebase_settings
+from library import print_drivebase_settings
 from turn_tuning import tuning
 from ui import add_program, user_interface
 '''from xbox_teleop import teleop'''
