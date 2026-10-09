@@ -31,11 +31,13 @@ async def  elevator_right(degrees: int, speed: int = 1000):
 async def drive_turn_right(degrees: int):
     await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
     await DRIVE_BASE.turn(degrees, Stop.BRAKE, wait=True)
+    await wait(50)
 
 async def drive_turn_left(degrees: int):
     await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
     await DRIVE_BASE.turn(-degrees, Stop.BRAKE, wait=True)
-
+    await wait(50)
+    
 async def drive_straight_forward(distance: int):
     await wait(50)
     DRIVE_BASE.stop()
@@ -60,3 +62,6 @@ async def E_stop():
         await wait(0)
         if Button.CENTER in HUB.buttons.pressed():
             raise SystemExit
+
+async def heading_check():
+    print(f"{DRIVE_BASE.angle()} <- This is the heading of the robot")
