@@ -17,7 +17,7 @@ RIGHT_ATTACHMENT = Motor(Port.E, Direction.COUNTERCLOCKWISE)
 SPEED = 400
 ACCELERATION = 500
 TURN_SPEED = 85
-TURN_ACCELERATION = 600
+TURN_ACCELERATION = 285 #600
 MANUAL_MOTOR_SPEED = 250
 #These are for FLL table testing.  The other set of values are for outreach events.
 '''
