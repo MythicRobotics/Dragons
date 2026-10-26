@@ -17,7 +17,7 @@ RIGHT_ATTACHMENT = Motor(Port.E, Direction.COUNTERCLOCKWISE)
 SPEED = 400
 ACCELERATION = 500
 TURN_SPEED = 85
-TURN_ACCELERATION = 285 #600
+TURN_ACCELERATION = 600 #600
 MANUAL_MOTOR_SPEED = 250
 #These are for FLL table testing.  The other set of values are for outreach events.
 '''
@@ -37,9 +37,9 @@ TELEOP_ATTACH_SPEED = 1000
 KP = 17500
 KI = 3000
 KD = 500
-TURN_KP =17600
+TURN_KP = 17600
 TURN_KI = 0
-TURN_KD = 1
+TURN_KD = 0
 
 
 # The main program starts here.
@@ -51,3 +51,8 @@ TURN_KD = 1
 # Change to match the setup of your robot. Adjust speeds as necessary
 distance_pid(DRIVE_BASE, 9000)
 heading_pid(DRIVE_BASE, KP, KI, KD, 0)
+
+'''async def check_if_stopped():
+    while hub.imu.stationary() == False:
+        await wait(10)
+        '''
