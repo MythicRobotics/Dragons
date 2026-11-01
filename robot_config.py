@@ -16,8 +16,8 @@ RIGHT_ATTACHMENT = Motor(Port.E, Direction.COUNTERCLOCKWISE)
 # Initialize variables.
 SPEED = 400
 ACCELERATION = 500
-TURN_SPEED = 85
-TURN_ACCELERATION = 600 #600
+TURN_SPEED = 60
+TURN_ACCELERATION = 250 #600
 MANUAL_MOTOR_SPEED = 250
 #These are for FLL table testing.  The other set of values are for outreach events.
 '''
@@ -30,14 +30,14 @@ TELEOP_ATTACH_SPEED = 1000
 # These are for outreach events.  The other set of values are for FLL table testing.
 TELEOP_SPEED = 400
 TELEOP_ACCEL = 500
-TELEOP_TURN = 85
+TELEOP_TURN = 60 #85
 TELEOP_TURN_ACCEL = 600
 TELEOP_ATTACH_SPEED = 1000
 
 KP = 17500
 KI = 3000
 KD = 500
-TURN_KP = 17600
+TURN_KP = 24200
 TURN_KI = 0
 TURN_KD = 0
 

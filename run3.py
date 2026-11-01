@@ -1,24 +1,50 @@
-from pybricks.parameters import Button, Stop
 from pybricks.tools import StopWatch, multitask, run_task, wait
 
-from pid_python import heading_pid
-from robot_config import DRIVE_BASE, HUB, KD, KI, KP, LEFT_ATTACHMENT, RIGHT_ATTACHMENT, TURN_KD, TURN_KI, TURN_KP
-
+from robot_config import DRIVE_BASE, HUB
+from library import elevator_up, elevator_down, elevator_left, elevator_right, drive_turn_right, drive_turn_left, drive_straight_forward, drive_straight_backward, telemetry, E_stop, heading_check, drive_straight_speed
 # Set up all devices.
 watch = StopWatch()
+# ᓚᘏᗢ
 
-async def subtask():
-    await wait(50)
-    DRIVE_BASE.stop()
-    await heading_pid(DRIVE_BASE, KP, KI, KD)
-    await DRIVE_BASE.straight(-10, then=Stop.BRAKE)
-    await DRIVE_BASE.straight(250)
+
+
+async def turn_by_turn_3():
+    watch.reset()
+    print(HUB.battery.voltage())
+    DRIVE_BASE.use_gyro(True)
+    await drive_straight_backward(10)
+    await drive_straight_forward(90)
+    await drive_turn_left(20)
+    await drive_straight_forward(245)
+    await drive_turn_right(20)
+    await drive_straight_forward(65)
+    await multitask(
+        drive_straight_forward(15),
+        elevator_up(10)
+    )                                     #rock finished
+    await multitask(
+        elevator_left(225),
+        drive_straight_backward(300)
+    )
+    await drive_turn_right(45)
+    await multitask(
+        elevator_left(225),
+        drive_straight_forward(520)
+    )
+    await elevator_up(300)
+    await drive_straight_speed(40)
+    await multitask(
+        elevator_up(110),
+        drive_straight_backward(145)
+    )
+    await drive_straight_speed(60)
+
+'''await DRIVE_BASE.straight(250)
     await wait(50)
     DRIVE_BASE.stop()
     await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
     await DRIVE_BASE.turn(-45)
-
-async def subtask2():
+    async def subtask2():
     await wait(50)
     DRIVE_BASE.stop()
     await heading_pid(DRIVE_BASE, TURN_KP, TURN_KI, TURN_KD)
@@ -107,28 +133,14 @@ async def subtask7():
     await DRIVE_BASE.straight(-500)
     # last code above this line
     DRIVE_BASE.stop()
-    print(watch.time())
+    print(watch.time())'''
 
-async def subtask8():
-    while True:
-        await wait(0)
-        await wait(100)
-        print(DRIVE_BASE.angle())
-
-async def subtask9():
-    await wait(1000)
-    while True:
-        await wait(0)
-        if Button.CENTER in HUB.buttons.pressed():
-            # ᓚᘏᗢ
-            raise SystemExit
-
-async def test3():
+async def launch_3():
     await wait(0)
     await multitask(
-        subtask7(),
-        subtask8(),
-        subtask9(),
+        turn_by_turn_3(),
+        telemetry(),
+        E_stop(),
         race=True,
     )
 

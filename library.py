@@ -34,34 +34,40 @@ async def _set_heading_pid_if_needed(kp: int, ki: int, kd: int):
     if (current_kp, current_ki, current_kd) != (kp, ki, kd):
         await wait(50)
         await heading_pid(DRIVE_BASE, kp, ki, kd)
-        await wait(50)
+    
 
 async def drive_turn_right(degrees: int):
+    DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(TURN_KP, TURN_KI, TURN_KD)
     await turn_acceleration_scale(degrees)
+    await wait(50)
     await DRIVE_BASE.turn(degrees, Stop.BRAKE, wait=True)
 
 async def drive_turn_left(degrees: int):
+    DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(TURN_KP, TURN_KI, TURN_KD)
     await turn_acceleration_scale(degrees)
+    await wait(50)
     await DRIVE_BASE.turn(-degrees, Stop.BRAKE, wait=True)
     
 async def drive_straight_forward(distance: int):
     DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(KP, KI, KD)
+    await wait(50)
     await DRIVE_BASE.straight(distance, then=Stop.BRAKE)    
 
 async def drive_straight_backward(distance: int):
     DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(KP, KI, KD)
+    await wait(50)
     await DRIVE_BASE.straight(-distance, then=Stop.BRAKE)    
 
 async def turn_acceleration_scale(degrees: int):
     global TURN_ACCELERATION
     if abs(degrees) < 70:
-        TURN_ACCELERATION = 300
+        TURN_ACCELERATION = 250
     elif abs(degrees) >= 70:
-        TURN_ACCELERATION =600
+        TURN_ACCELERATION = 250
     else:
         print('error:Turn Acceleration Scale')
     DRIVE_BASE.settings(turn_acceleration=TURN_ACCELERATION)
@@ -71,6 +77,10 @@ async def turn_acceleration_scale(degrees: int):
     while hub.imu.stationary() == False:
         await wait(10)
         '''
+async def drive_straight_speed(speed: int):
+    DRIVE_BASE.stop()
+    await wait(50)
+    DRIVE_BASE.settings(straight_speed=speed)
 
 async def telemetry():
     while True:
