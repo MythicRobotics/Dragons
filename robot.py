@@ -3,9 +3,9 @@ from pybricks.tools import multitask, run_task, wait
 
 from library import set_drivebase
 from run1 import launch_1
-from run2 import test2
+from run2 import launch_2
 from run3 import launch_3
-from run4 import test4
+from run4 import launch_4
 from library import print_drivebase_settings
 from turn_tuning import tuning
 from ui import add_program, user_interface
@@ -35,9 +35,9 @@ async def main():
     # Missions will need to be imported, see example missions/utility programs
     # below
     await add_program(launch_1, '1', Color.BLUE)
-    await add_program(test2, '2', Color.CYAN)
+    await add_program(launch_2, '2', Color.CYAN)
     await add_program(launch_3, '3', Color.MAGENTA)
-    await add_program(test4, '4', Color.ORANGE)
+    await add_program(launch_4, '4', Color.ORANGE)
     await add_program(tuning, 't', Color.RED)
     '''await add_program(teleop, 'X', Color.ORANGE)'''
     # Launch the user interface
