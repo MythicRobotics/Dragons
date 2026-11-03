@@ -13,11 +13,37 @@ async def turn_by_turn_1():
     print(HUB.battery.voltage())
     DRIVE_BASE.use_gyro(True)
     await drive_straight_backward(10)
+    await drive_straight_forward(100)
+    await drive_turn_right(20)
+    await drive_straight_forward(710)
+    await drive_turn_right(50)
+    await drive_straight_forward(50)
+    await drive_turn_right(20)
+    await drive_straight_forward(80)
+    await elevator_left(90)
     await multitask(
+        drive_straight_forward(23),
+        elevator_left(90)
+    )
+    await multitask(
+        elevator_up(600),
+        elevator_left(300)
+    )
+    await elevator_right(200)
+    await multitask(
+        elevator_down(570),
+        elevator_right(120)
+    )
+    await elevator_right(100)
+    await drive_straight_backward(188)
+    await elevator_up(15)
+    await elevator_left(300)
+    await elevator_up(00)
+
+    '''await multitask(
        elevator_up(320),
         drive_straight_forward(320),
-    )
-    await drive_turn_right(30)#35
+    )    await drive_turn_right(30)#35
     await multitask(
         drive_straight_forward(515),#555
         elevator_up(600)
@@ -47,7 +73,8 @@ async def turn_by_turn_1():
     await elevator_down(470)
     await elevator_left(300, 780)
     await elevator_down(470)
-    #this is where the robot does tangled
+    #this is where the robot does tangled'''
+
     '''
 
     watch.reset()
