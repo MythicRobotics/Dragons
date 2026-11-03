@@ -9,9 +9,6 @@ watch = StopWatch()
 
 
 async def turn_by_turn_1():
-    watch.reset()
-    print(HUB.battery.voltage())
-    DRIVE_BASE.use_gyro(True)
     await drive_straight_backward(10)
     await drive_straight_forward(100)
     await drive_turn_right(20)
@@ -194,12 +191,16 @@ async def turn_by_turn_1():
 
 async def launch_1():
     await wait(0)
+    watch.reset()
+    print(HUB.battery.voltage())
+    DRIVE_BASE.use_gyro(True)
     await multitask(
         turn_by_turn_1(),
         telemetry(),
         E_stop(),
         race=True,
     )
+    print(f"Time: {watch.time()/1000} seconds")
 
 async def main():
     await multitask(
