@@ -19,15 +19,15 @@ async def turn_by_turn_1():
     await drive_turn_right(50)
     await drive_straight_forward(50)
     await drive_turn_right(20)
-    #simplify lines 23-28?
-    await elevator_left(95)
-    await drive_straight_forward(80)                #pass the seeds
-    await elevator_right(20)     #why?
+    #simplify lines 23-28?                
     await multitask(
-        drive_straight_forward(12),
-        elevator_left(90)
+        drive_straight_forward(92),      #pass the seeds     #why?
+        elevator_left(120)
     )
-    await elevator_up(150)
+    await multitask(
+        elevator_up(150),
+        elevator_left(45)
+    )
     await multitask(
         elevator_up(450),
         elevator_left(300)
@@ -43,7 +43,7 @@ async def turn_by_turn_1():
     await drive_straight_backward(260)
     await drive_turn_left(20)
     await elevator_left(80)
-    await drive_straight_forward(40)
+    await drive_straight_forward(43)
     await elevator_up(680)
     await elevator_left(130)
     await multitask(
@@ -52,17 +52,37 @@ async def turn_by_turn_1():
     )
     await elevator_right(510)
     await elevator_down(200)
-    await elevator_left(180)
-    await elevator_up(150)
-   
-    await elevator_up(120)      
-    await elevator_left(200)
+    await elevator_left(0)           
+    await multitask(
+        elevator_up(300),
+        elevator_left(300)
+    )
+    await multitask(
+        elevator_up(180),
+        elevator_left(205)
+    )
+    await elevator_down(150)
+    await elevator_right(200)
+    await multitask(                         #reaching roots finished
+        drive_straight_forward(100),
+        elevator_down(650),
+        elevator_right(300)
+    )
+    await drive_straight_forward(50)
+    await multitask(
+        elevator_up(1500, 900),
+        elevator_left(130)
+    )
+    '''wait(5000),
+        race=True,'''
     
-    await elevator_up(120)
-    await elevator_left(200)
-    await elevator_right(200)                          #reaching roots finished
-    await drive_straight_forward(100)
-
+    await elevator_down(200)
+    await drive_straight_backward(60)
+    await drive_turn_right(90)
+    await multitask(
+        elevator_right(0),
+    await drive_straight_forward(400)
+    )
     '''await multitask(
        elevator_up(320),
         drive_straight_forward(320),

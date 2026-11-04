@@ -20,20 +20,20 @@ TURN_SPEED = 60
 TURN_ACCELERATION = 250 #600
 MANUAL_MOTOR_SPEED = 250
 #These are for FLL table testing.  The other set of values are for outreach events.
-'''
+
 TELEOP_SPEED = 150
 TELEOP_ACCEL = 500
 TELEOP_TURN = 100
 TELEOP_TURN_ACCEL = 500
-TELEOP_ATTACH_SPEED = 1000
-'''
+TELEOP_ATTACH_SPEED = 250
+
 # These are for outreach events.  The other set of values are for FLL table testing.
-TELEOP_SPEED = 400
+'''TELEOP_SPEED = 400
 TELEOP_ACCEL = 500
 TELEOP_TURN = 60 #85
 TELEOP_TURN_ACCEL = 600
 TELEOP_ATTACH_SPEED = 1000
-
+'''
 KP = 17500
 KI = 3000
 KD = 500

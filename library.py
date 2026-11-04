@@ -18,10 +18,10 @@ async def print_drivebase_settings():
     print(DRIVE_BASE.settings())
 
 async def  elevator_up(degrees: int, speed: int = 1000):
-    await RIGHT_ATTACHMENT.run_angle(speed, degrees)
+    await RIGHT_ATTACHMENT.run_angle(speed, degrees*1.67)
 
 async def  elevator_down(degrees: int, speed: int = 1000):
-    await RIGHT_ATTACHMENT.run_angle(speed, -degrees)
+    await RIGHT_ATTACHMENT.run_angle(speed, -degrees*1.67)
 
 async def  elevator_left(degrees: int, speed: int = 1000):
     await LEFT_ATTACHMENT.run_angle(speed, degrees)
