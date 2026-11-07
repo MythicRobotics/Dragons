@@ -29,3 +29,8 @@ async def main():
 
 
 run_task(main())
+async def main():
+    await multitask(
+        wait(0),
+    )
+   

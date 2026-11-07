@@ -1,3 +1,5 @@
+
+
 from pybricks.hubs import PrimeHub
 from pybricks.parameters import Button, Stop
 from pybricks.tools import multitask, run_task, wait
@@ -17,11 +19,11 @@ async def print_drivebase_settings():
     print('Speed, Acceleration, Turn, Turn Accel')
     print(DRIVE_BASE.settings())
 
-async def  elevator_up(degrees: int, speed: int = 1000):
-    await RIGHT_ATTACHMENT.run_angle(speed, degrees*1.67)
+async def  elevator_up(degrees: int, speed: int = 1000):            
+    await RIGHT_ATTACHMENT.run_angle(speed, degrees*1.67)     # \(^u^)/
 
 async def  elevator_down(degrees: int, speed: int = 1000):
-    await RIGHT_ATTACHMENT.run_angle(speed, -degrees*1.67)
+    await RIGHT_ATTACHMENT.run_angle(speed, -degrees*1.67)            #2.222
 
 async def  elevator_left(degrees: int, speed: int = 1000):
     await LEFT_ATTACHMENT.run_angle(speed, degrees)
@@ -34,21 +36,22 @@ async def _set_heading_pid_if_needed(kp: int, ki: int, kd: int):
     if (current_kp, current_ki, current_kd) != (kp, ki, kd):
         await wait(50)
         await heading_pid(DRIVE_BASE, kp, ki, kd)
-    
 
-async def drive_turn_right(degrees: int):
+async def drive_turn_right(turn_heading: int):
     DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(TURN_KP, TURN_KI, TURN_KD)
+    degrees = turn_heading-DRIVE_BASE.angle()
     await turn_acceleration_scale(degrees)
     await wait(50)
     await DRIVE_BASE.turn(degrees, Stop.BRAKE, wait=True)
 
-async def drive_turn_left(degrees: int):
+async def drive_turn_left(turn_heading: int):
     DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(TURN_KP, TURN_KI, TURN_KD)
+    degrees = turn_heading-DRIVE_BASE.angle()
     await turn_acceleration_scale(degrees)
     await wait(50)
-    await DRIVE_BASE.turn(-degrees, Stop.BRAKE, wait=True)
+    await DRIVE_BASE.turn(degrees, Stop.BRAKE, wait=True)
     
 async def drive_straight_forward(distance: int):
     DRIVE_BASE.stop()
