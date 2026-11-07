@@ -4,17 +4,17 @@ from robot_config import DRIVE_BASE, HUB
 from library import elevator_up, elevator_down, elevator_left, elevator_right, drive_turn_right, drive_turn_left, drive_straight_forward, drive_straight_backward, telemetry, E_stop, heading_check, drive_straight_speed
 # Set up all devices.
 watch = StopWatch()
-# ᓚᘏᗢ
+# ᓚᘏᗢ 
 
 
 
 async def turn_by_turn_3():
     await drive_straight_backward(10)
-    await drive_straight_forward(90)
-    await drive_turn_left(20)
+    await drive_straight_forward(100)
+    await drive_turn_left(-20)
     await drive_straight_forward(245)
-    await drive_turn_right(20)
-    await drive_straight_forward(65)
+    await drive_turn_right(0)
+    await drive_straight_forward(75)#65
     await multitask(
         drive_straight_forward(15),
         elevator_up(10)
@@ -26,17 +26,21 @@ async def turn_by_turn_3():
     await drive_turn_right(45)
     await multitask(
         elevator_left(225),
-        drive_straight_forward(510)
+        drive_straight_forward(500)
     )
-    await elevator_up(300)
+    
+    await elevator_up(350)
     await drive_straight_speed(40)
     await multitask(
-        elevator_up(110),
-        drive_straight_backward(145)
+        elevator_down(110),
+        drive_straight_backward(20)
     )
+    await multitask(
+            elevator_up(220),
+            drive_straight_backward(125)
+        )
     await drive_straight_speed(60)
-
-
+                                         #we finshed the expoding seeds!!!!!
 
 async def launch_3():
     await wait(0)
