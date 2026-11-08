@@ -2,7 +2,7 @@
 User Interface for Pybricks FLL
 """
 
-from pybricks.parameters import Color, Button
+from pybricks.parameters import Color, Button, Side
 from robot_config import HUB
 from pybricks.tools import multitask, wait
 
