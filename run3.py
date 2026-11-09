@@ -40,7 +40,7 @@ async def turn_by_turn_3():
             drive_straight_backward(200)
         )                                #finshed the expoding seeds!!!!!
     await drive_turn_right(90)
-    await drive_straight_speed(60) 
+    #await drive_straight_speed(60) 
   
                                         
 
