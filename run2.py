@@ -77,7 +77,7 @@ async def turn_by_turn_2():
     await multitask(                         #reaching roots finished
         drive_straight_forward(100),
         elevator_down(1000),
-        elevator_right(270)
+        elevator_right(200)
     )
     await drive_straight_forward(50)
     await multitask(
@@ -111,6 +111,7 @@ async def launch_2():
     watch.reset()
     print(HUB.battery.voltage())
     DRIVE_BASE.use_gyro(True)
+    DRIVE_BASE.reset()
     await multitask(    
         turn_by_turn_2(),
         #telemetry(),
