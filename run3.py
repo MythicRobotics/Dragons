@@ -1,14 +1,21 @@
 from pybricks.tools import StopWatch, multitask, run_task, wait
-from robot_config import DRIVE_BASE, HUB
+from robot_config import DRIVE_BASE, HUB, LEFT_ATTACHMENT
 from library import elevator_up, elevator_down, elevator_left, elevator_right, drive_turn_right, drive_turn_left, drive_straight_forward, drive_straight_backward, telemetry, E_stop, heading_check, drive_straight_speed
 # Set up all devices.
 watch = StopWatch()
-# ᓚᘏᗢ
+
+
+async def wait_for_left_elevator_stall():
+    while True:
+        await wait(10)
+        if LEFT_ATTACHMENT.stalled():
+            return True
+
 
 async def turn_by_turn_3():
     await drive_straight_backward(10)
     await multitask(
-        drive_straight_forward(75),#90
+        drive_straight_forward(75),
         elevator_left(500)
     )
     await drive_turn_right(90)
@@ -31,34 +38,49 @@ async def turn_by_turn_3():
     )
     await drive_turn_left(0)
     await multitask(
-        elevator_right(600),#500                    #prepareing for keystone species
+        elevator_right(600),                   #prepareing for keystone species
         drive_straight_forward(115)
     )
     await elevator_up(570)
     await elevator_down(400)                    #keystone species done
     #await elevator_right(100)
-    await drive_turn_left(-85)#-80
+    await drive_turn_left(-85)
     await multitask(
-        drive_straight_backward(400),
+        drive_straight_backward(425),
         elevator_up(150),
     )
     await multitask(
         drive_turn_left(-180),
-        elevator_left(425)
-    )
-    await multitask(
-        drive_straight_forward(105),
+        elevator_left(403),
         elevator_down(590)
     )
-    await elevator_left(280)
+   
+    await drive_straight_forward(105),
+
+    _, elevator_stalled = await multitask(
+        elevator_left(303),
+        wait_for_left_elevator_stall(),
+        race=True,
+    )                                     #skylight done
+    if elevator_stalled:
+        LEFT_ATTACHMENT.hold()
+        print("Left elevator stalled; stopping mission")
+
     await multitask(
         drive_straight_backward(105),
-        elevator_up(590),
+        elevator_up(450),
         elevator_right(425)
     )
-    await drive_turn_right(-90) #need to rase more
+    await multitask(
+        drive_turn_left(-260),
+        drive_straight_forward(500)
+    )
 
-
+    await multitask(
+        drive_straight_forward(600),
+        elevator_right(600),
+        elevator_down(700)
+    )
   #  await drive_turn_right(-40)
   #  await drive_straight_backward(225)
    # await drive_turn_left(-90)
@@ -74,6 +96,7 @@ async def launch_3():
     watch.reset()
     print(HUB.battery.voltage())
     DRIVE_BASE.use_gyro(True)
+    DRIVE_BASE.reset()
     await multitask(
         turn_by_turn_3(),
         telemetry(),

@@ -14,6 +14,7 @@ async def launch_4():
     watch.reset()
     print(HUB.battery.voltage())
     DRIVE_BASE.use_gyro(True)
+    DRIVE_BASE.reset()
     await multitask(
         turn_by_turn_4(),
         telemetry(),
