@@ -20,16 +20,52 @@ async def print_drivebase_settings():
     print(DRIVE_BASE.settings())
 
 async def  elevator_up(degrees: int, speed: int = 1000):            
-    await RIGHT_ATTACHMENT.run_angle(speed, degrees*1.67)     # \(^u^)/
+    _, elevator_stalled = await multitask(
+        RIGHT_ATTACHMENT.run_angle(speed, degrees*1.67),
+        wait_for_elevator_stall(RIGHT_ATTACHMENT),
+        race=True,
+    )
+    if elevator_stalled:
+        RIGHT_ATTACHMENT.hold()
+        print("Up elevator stalled; stopping mission")     # \(^u^)/
 
 async def  elevator_down(degrees: int, speed: int = 1000):
-    await RIGHT_ATTACHMENT.run_angle(speed, -degrees*1.67)            #2.222
+    _, elevator_stalled = await multitask(
+        RIGHT_ATTACHMENT.run_angle(speed, -degrees*1.67),
+        wait_for_elevator_stall(RIGHT_ATTACHMENT),
+        race=True,
+    )
+    if elevator_stalled:
+        RIGHT_ATTACHMENT.hold()
+        print("Down elevator stalled; stopping mission")
+            
+async def  elevator_right(degrees: int, speed: int = 1000):
+    _, elevator_stalled = await multitask(
+        LEFT_ATTACHMENT.run_angle(speed, -degrees),
+        wait_for_elevator_stall(LEFT_ATTACHMENT),
+        race=True,
+    )
+    if elevator_stalled:
+        LEFT_ATTACHMENT.hold()
+        print("Right elevator stalled; stopping mission")
 
 async def  elevator_left(degrees: int, speed: int = 1000):
-    await LEFT_ATTACHMENT.run_angle(speed, degrees)
+    _, elevator_stalled = await multitask(
+        LEFT_ATTACHMENT.run_angle(speed, degrees),
+        wait_for_elevator_stall(LEFT_ATTACHMENT),
+        race=True,
+    )
+    if elevator_stalled:
+        LEFT_ATTACHMENT.hold()
+        print("Left elevator stalled; stopping mission")
 
-async def  elevator_right(degrees: int, speed: int = 1000):
-    await LEFT_ATTACHMENT.run_angle(speed, -degrees)
+async def wait_for_elevator_stall(which_attachment):
+    while True:
+        await wait(10)
+        if which_attachment.stalled():
+            return True
+
+
 
 async def _set_heading_pid_if_needed(kp: int, ki: int, kd: int):
     current_kp, current_ki, current_kd, *_ = DRIVE_BASE.heading_control.pid()

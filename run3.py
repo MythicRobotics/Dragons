@@ -5,11 +5,6 @@ from library import elevator_up, elevator_down, elevator_left, elevator_right, d
 watch = StopWatch()
 
 
-async def wait_for_left_elevator_stall():
-    while True:
-        await wait(10)
-        if LEFT_ATTACHMENT.stalled():
-            return True
 
 
 async def turn_by_turn_3():
@@ -54,18 +49,9 @@ async def turn_by_turn_3():
         elevator_left(403),
         elevator_down(590)
     )
-   
-    await drive_straight_forward(105),
-
-    _, elevator_stalled = await multitask(
-        elevator_left(303),
-        wait_for_left_elevator_stall(),
-        race=True,
-    )                                     #skylight done
-    if elevator_stalled:
-        LEFT_ATTACHMENT.hold()
-        print("Left elevator stalled; stopping mission")
-
+    await drive_straight_forward(105)
+    await elevator_left(303)                  #skylight done
+        
     await multitask(
         drive_straight_backward(105),
         elevator_up(450),
