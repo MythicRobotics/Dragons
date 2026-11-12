@@ -39,7 +39,7 @@ async def main():
     await add_program(launch_3, '3', Color.MAGENTA)
     await add_program(launch_4, '4', Color.ORANGE)
     await add_program(tuning, 't', Color.RED)
-    #await add_program(teleop, 'X', Color.ORANGE)
+    #await add_program(teleop, 'X', Color.ORANGE)'''
     # Launch the user interface
     await user_interface()
 
