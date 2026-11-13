@@ -93,13 +93,13 @@ async def drive_straight_forward(distance: int):
     DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(KP, KI, KD)
     await wait(50)
-    await DRIVE_BASE.straight(distance, then=Stop.BRAKE)    
+    await DRIVE_BASE.straight(distance, then=Stop.HOLD)    
 
 async def drive_straight_backward(distance: int):
     DRIVE_BASE.stop()
     await _set_heading_pid_if_needed(KP, KI, KD)
     await wait(50)
-    await DRIVE_BASE.straight(-distance, then=Stop.BRAKE)    
+    await DRIVE_BASE.straight(-distance, then=Stop.HOLD)       #brake
 
 async def turn_acceleration_scale(degrees: int):
     global TURN_ACCELERATION
@@ -136,3 +136,8 @@ async def E_stop():
 
 async def heading_check(text: str = '<- This is the heading of the robot'):
     print(f"{DRIVE_BASE.angle()} {text}")
+
+async def all_stop ():
+    DRIVE_BASE.stop()
+    LEFT_ATTACHMENT.stop()
+    RIGHT_ATTACHMENT.stop()
