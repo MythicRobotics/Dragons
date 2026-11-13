@@ -61,7 +61,7 @@ async def  elevator_left(degrees: int, speed: int = 1000):
 
 async def wait_for_elevator_stall(which_attachment):
     while True:
-        await wait(10)
+        await wait(300)
         if which_attachment.stalled():
             return True
 
@@ -79,7 +79,7 @@ async def drive_turn_right(turn_heading: int):
     degrees = turn_heading-DRIVE_BASE.angle()
     await turn_acceleration_scale(degrees)
     await wait(50)
-    await DRIVE_BASE.turn(degrees, Stop.BRAKE, wait=True)
+    await DRIVE_BASE.turn(degrees, Stop.HOLD, wait=True)
 
 async def drive_turn_left(turn_heading: int):
     DRIVE_BASE.stop()
@@ -87,7 +87,7 @@ async def drive_turn_left(turn_heading: int):
     degrees = turn_heading-DRIVE_BASE.angle()
     await turn_acceleration_scale(degrees)
     await wait(50)
-    await DRIVE_BASE.turn(degrees, Stop.BRAKE, wait=True)
+    await DRIVE_BASE.turn(degrees, Stop.HOLD, wait=True)
     
 async def drive_straight_forward(distance: int):
     DRIVE_BASE.stop()

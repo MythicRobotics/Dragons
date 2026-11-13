@@ -20,7 +20,21 @@ async def turn_by_turn_4():
     await drive_straight_backward(95)
     await drive_straight_forward(100)
     await elevator_up(90)
-    await drive_straight_backward(100)
+    await drive_straight_backward(85)
+    await elevator_up(300)
+    await drive_turn_right(45)
+    await drive_straight_backward(80)
+    await drive_turn_left(-50)
+    await multitask(
+        drive_straight_forward(150),
+        elevator_up(400)
+    )
+    await drive_turn_right(45)
+    await multitask(
+        drive_straight_backward(50),
+        elevator_down(700)
+    )
+    await drive_straight_forward(0, 00)
     
 async def launch_4():
     await wait(0)
