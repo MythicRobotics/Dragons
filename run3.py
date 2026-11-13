@@ -1,6 +1,6 @@
 from pybricks.tools import StopWatch, multitask, run_task, wait
 from robot_config import DRIVE_BASE, HUB, LEFT_ATTACHMENT
-from library import elevator_up, elevator_down, elevator_left, elevator_right, drive_turn_right, drive_turn_left, drive_straight_forward, drive_straight_backward, telemetry, E_stop, heading_check, drive_straight_speed
+from library import elevator_up, elevator_down, elevator_left, elevator_right, drive_turn_right, drive_turn_left, drive_straight_forward, drive_straight_backward, telemetry, E_stop, heading_check, drive_straight_speed, all_stop
 # Set up all devices.
 watch = StopWatch()
 
@@ -21,11 +21,11 @@ async def turn_by_turn_3():
     await drive_straight_speed(100)
     await drive_straight_forward(100)
     await drive_straight_speed(400)
-    await drive_straight_forward(350)            #raming into the drone
+    await drive_straight_forward(330)            #raming into the drone
     await drive_turn_left(45)
     await drive_turn_left(30)                   #drone fully complated
     await drive_turn_right(90)
-    await drive_straight_backward(120)
+    await drive_straight_backward(100)
     await drive_turn_left(45)
     await multitask(
         drive_straight_forward(250),
@@ -65,7 +65,7 @@ async def turn_by_turn_3():
     await multitask(
         drive_straight_forward(600),
         elevator_right(600),
-        elevator_down(700)
+        elevator_down(900)
     )
   #  await drive_turn_right(-40)
   #  await drive_straight_backward(225)
@@ -89,6 +89,7 @@ async def launch_3():
         E_stop(),
         race=True,
     )
+    await all_stop()
     print(f"Time: {watch.time()/1000} seconds")
 
 async def main():

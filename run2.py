@@ -2,7 +2,7 @@ from pybricks.parameters import Stop
 from pybricks.tools import StopWatch, multitask, run_task, wait
 
 from robot_config import DRIVE_BASE, HUB
-from library import elevator_up, elevator_down, elevator_left, elevator_right, drive_turn_right, drive_turn_left, drive_straight_forward, drive_straight_backward, telemetry, E_stop, heading_check
+from library import elevator_up, elevator_down, elevator_left, elevator_right, drive_turn_right, drive_turn_left, drive_straight_forward, drive_straight_backward, telemetry, E_stop, heading_check, all_stop
 # Set up all devices.
 watch = StopWatch()
 
@@ -97,7 +97,7 @@ async def turn_by_turn_2():
         multitask(
             drive_straight_forward(400),
             elevator_right(400),
-            elevator_down(895),
+            elevator_down(945),
         ),  
         wait(2000),#2000
         race=True,      
@@ -118,6 +118,7 @@ async def launch_2():
         E_stop(),
         race=True,
     )
+    await all_stop()
     print(f"Time: {watch.time()/1000} seconds")
 
 async def main():
