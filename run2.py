@@ -23,28 +23,28 @@ async def turn_by_turn_2():
     await drive_straight_forward(50)                               
     await drive_turn_right(90)
     await heading_check()
-    #simplify lines 23-28?                
+                   
     await multitask(
-        drive_straight_forward(92),      #pass the seeds
+        drive_straight_forward(110),#92    #pass the seeds
         elevator_left(120)
     )
     await multitask(
-        elevator_up(200),#150au
+        elevator_up(200),
         elevator_left(45)
     )
     await multitask(
-        elevator_up(500),#450au
+        elevator_up(500),
         elevator_left(300)
     )
     await elevator_right(200)
     await multitask(
-        elevator_down(670),#570au
+        elevator_down(670),
         elevator_right(120)
     )
     await elevator_right(100)
     await heading_check()
-    await drive_straight_backward(90)
-    #await drive_turn_right(20)
+    await drive_straight_backward(100)#90
+    
     await drive_turn_right(110)
     await heading_check()
     await drive_straight_backward(260)

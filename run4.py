@@ -18,15 +18,15 @@ async def turn_by_turn_4():
     await drive_straight_forward(170)
     await elevator_down(200)
     await drive_straight_backward(95)
-    await drive_straight_forward(100)            #fungus good :)
+    await drive_straight_forward(100)            #fungus good 
     await elevator_up(105)
     await drive_straight_backward(85)
     await elevator_up(300)
     await drive_turn_right(45)
-    await drive_straight_backward(80)
-    await drive_turn_left(-50)                   #window to past good :)
+    await drive_straight_backward(95)
+    await drive_turn_left(-50)                   #window to past good 
     await multitask(
-        drive_straight_forward(230),      #more ?
+        drive_straight_forward(230),      
         elevator_up(400)
     )
     await drive_turn_right(45)
@@ -35,8 +35,13 @@ async def turn_by_turn_4():
         elevator_down(715)
     )
     await drive_straight_speed(50)
-    await drive_straight_forward(150)
+    await multitask(
+        drive_straight_forward(150),
+        wait(5000),
+        race=True,
+    )
     await drive_straight_speed(400)
+    await drive_straight_backward(60)
 
 async def launch_4():
     await wait(0)
