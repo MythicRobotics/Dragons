@@ -46,7 +46,7 @@ async def turn_by_turn_3():
     )
     await multitask(
         drive_turn_left(-180),
-        elevator_left(403),
+        elevator_left(403),                  # elevator :(
         elevator_down(590)
     )
     await drive_straight_forward(105)

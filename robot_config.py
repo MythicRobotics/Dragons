@@ -12,6 +12,8 @@ DRIVE_RIGHT = Motor(Port.A, Direction.CLOCKWISE)
 DRIVE_BASE = DriveBase(DRIVE_LEFT, DRIVE_RIGHT, 62.4, 104)
 LEFT_ATTACHMENT = Motor(Port.F, Direction.CLOCKWISE)
 RIGHT_ATTACHMENT = Motor(Port.E, Direction.COUNTERCLOCKWISE)
+LEFT_ATTACHMENT.control.stall_tolerances(15, 400)
+RIGHT_ATTACHMENT.control.stall_tolerances(15, 400)                    #default is 15, 200
 
 # Initialize variables.
 SPEED = 400
