@@ -53,12 +53,12 @@ async def turn_by_turn_2():
     await elevator_left(80)
     await drive_straight_forward(37)
     await elevator_up(910)#670au
-    await elevator_left(130)             #reaching roots A
+    await elevator_left(200)   #130 13th         #reaching roots A
     await multitask(
         elevator_left(280),
         elevator_down(100)#75au
     )
-    await elevator_right(510)                   #610) 10th
+    await elevator_right(510)               #610) 10th
     await elevator_down(375)#275          
     await multitask(
         elevator_up(500),#400
@@ -73,7 +73,7 @@ async def turn_by_turn_2():
         elevator_down(200) 
     )                                 #reaching roots B           
    
-    await elevator_right(200)
+    await elevator_right(270)  #200 13th
     await multitask(                         #reaching roots finished
         drive_straight_forward(100),
         elevator_down(1000),
@@ -114,7 +114,7 @@ async def launch_2():
     DRIVE_BASE.reset()
     await multitask(    
         turn_by_turn_2(),
-        #telemetry(),
+        telemetry(),
         E_stop(),
         race=True,
     )
