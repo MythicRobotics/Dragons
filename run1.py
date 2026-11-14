@@ -32,7 +32,7 @@ async def turn_by_turn_1():
     await elevator_up(350)
    # await drive_straight_speed(40)
     await multitask(
-        elevator_down(110),
+        elevator_down(90),                           #110 13th
         drive_straight_backward(20)
     )
     await multitask(

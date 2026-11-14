@@ -36,8 +36,8 @@ async def turn_by_turn_3():
         elevator_right(600),                   #prepareing for keystone species
         drive_straight_forward(115)
     )
-    await elevator_up(570)
-    await elevator_down(400)                    #keystone species done
+    await elevator_up(585)
+    await elevator_down(415)                    #keystone species done
     #await elevator_right(100)
     await drive_turn_left(-85)
     await multitask(
